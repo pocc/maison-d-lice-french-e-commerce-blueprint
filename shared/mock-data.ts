@@ -5,7 +5,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Château Margaux 2015',
     price: 850,
     category: 'Vin',
-    image: 'https://images.unsplash.com/photo-1510850431481-7a2ba2d32ea0?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop',
     description: 'A legendary Premier Cru Classé from the Margaux appellation. Complex and elegant.',
     pairing: 'Ideal with roast lamb or mature Brie.'
   },
@@ -14,7 +14,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Bordeaux Supérieur',
     price: 45,
     category: 'Vin',
-    image: 'https://images.unsplash.com/photo-1553361371-9bb22026e16b?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&auto=format&fit=crop',
     description: 'Deep ruby color with notes of blackcurrant and subtle oak.',
     pairing: 'Pairs perfectly with beef tartare.'
   },
