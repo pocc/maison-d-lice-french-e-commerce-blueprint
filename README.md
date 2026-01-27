@@ -28,8 +28,8 @@ A full-stack chat application powered by Cloudflare Workers and Durable Objects.
 
 1. **Clone & Install**:
    ```bash
-   git clone <your-repo-url>
-   cd maison-delice-7vxkt2wzivyysztmtkds_
+   git clone https://github.com/pocc/maison-d-lice-french-e-commerce-blueprint
+   cd maison-d-lice-french-e-commerce-blueprint
    bun install
    ```
 
