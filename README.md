@@ -1,6 +1,6 @@
 # Maison Delice
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)] [cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)] [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rosscf/maison-d-lice-french-e-commerce-blueprint)
 
 A full-stack chat application powered by Cloudflare Workers and Durable Objects. Features user management, chat boards, and real-time messaging with seamless pagination and indexing. Built with modern TypeScript, React, and Tailwind CSS for a responsive, production-ready experience.
 
@@ -99,7 +99,7 @@ This builds the frontend assets and deploys the Worker via Wrangler.
    bunx wrangler deploy
    ```
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rosscf/maison-d-lice-french-e-commerce-blueprint)
 
 Custom domain, env vars, and bindings are configured in `wrangler.jsonc`.
 
