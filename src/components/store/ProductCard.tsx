@@ -10,7 +10,7 @@ import { toast } from 'sonner';
 
 interface ProductCardProps {
   product: Product;
-  onViewDetails: (product: Product) => void;
+  onViewDetails?: (product: Product) => void;
 }
 
 export const ProductCard = React.forwardRef((props: ProductCardProps, ref: Ref<HTMLDivElement>) => {
@@ -45,7 +45,7 @@ export const ProductCard = React.forwardRef((props: ProductCardProps, ref: Ref<H
               size="sm"
               variant="secondary"
               className="bg-white/90 backdrop-blur"
-              onClick={() => onViewDetails(product)}
+              onClick={() => onViewDetails?.(product)}
             >
               Détails
             </Button>

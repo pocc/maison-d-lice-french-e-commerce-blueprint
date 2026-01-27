@@ -14,7 +14,6 @@ export function HomePage() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState('newest');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const categories = useMemo(() => {
     return Array.from(new Set(MOCK_PRODUCTS.map((p) => p.category)));
   }, []);
@@ -65,7 +64,7 @@ export function HomePage() {
               <Button size="lg" className="bg-merlot hover:bg-merlot/90 text-lg px-8 py-6 font-serif h-auto">
                 Découvrir la Collection <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
+              <Button size="lg" variant="outline" className="text-white border-white/80 bg-white/5 hover:bg-white/20 drop-shadow-xl shadow-black/30 text-lg px-8 py-6 h-auto">
                 Nos Producteurs
               </Button>
             </div>
@@ -125,7 +124,6 @@ export function HomePage() {
                   <ProductCard
                     key={product.id}
                     product={product}
-                    onViewDetails={setSelectedProduct}
                   />
                 ))}
               </AnimatePresence>
