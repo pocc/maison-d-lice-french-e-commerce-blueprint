@@ -1,20 +1,17 @@
-import React, { type Ref } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useCartStore } from '@/lib/store';
 import type { Product } from '@shared/types';
 import { toast } from 'sonner';
-
 interface ProductCardProps {
   product: Product;
-  onViewDetails?: (product: Product) => void;
+  onViewDetails: (product: Product) => void;
 }
-
-export const ProductCard = React.forwardRef((props: ProductCardProps, ref: Ref<HTMLDivElement>) => {
-  const { product, onViewDetails } = props;
+export function ProductCard({ product, onViewDetails }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
   const handleAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -23,7 +20,6 @@ export const ProductCard = React.forwardRef((props: ProductCardProps, ref: Ref<H
   };
   return (
     <motion.div
-      ref={ref}
       whileHover={{ y: -5 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -41,16 +37,16 @@ export const ProductCard = React.forwardRef((props: ProductCardProps, ref: Ref<H
             {product.category}
           </Badge>
           <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 px-3 opacity-0 translate-y-4 transition-all group-hover:opacity-100 group-hover:translate-y-0">
-            <Button
-              size="sm"
-              variant="secondary"
+            <Button 
+              size="sm" 
+              variant="secondary" 
               className="bg-white/90 backdrop-blur"
-              onClick={() => onViewDetails?.(product)}
+              onClick={() => onViewDetails(product)}
             >
-              Détails
+              <Info className="mr-2 h-4 w-4" /> Détails
             </Button>
-            <Button
-              size="sm"
+            <Button 
+              size="sm" 
               className="bg-merlot hover:bg-merlot/90"
               onClick={handleAdd}
             >
@@ -69,6 +65,4 @@ export const ProductCard = React.forwardRef((props: ProductCardProps, ref: Ref<H
       </Card>
     </motion.div>
   );
-});
-
-ProductCard.displayName = 'ProductCard';
+}
