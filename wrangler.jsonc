@@ -3,7 +3,7 @@
  */
  {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "maison-delice-7vxkt2wzivyysztmtkds_",
+	"name": "maison-d-lice-french-e-commerce-blueprint",
 	"main": "worker/index.ts",
 	"compatibility_date": "2025-04-24",
 	"assets": {
