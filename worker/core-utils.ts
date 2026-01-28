@@ -1,6 +1,5 @@
 /**
  * Core utilities for Multiple Entities sharing a single Durable Object class
- * DO NOT MODIFY THIS FILE - You may break the project functionality. STRICTLY DO NOT TOUCH
  * Look at the \`worker/entities.ts\` file for examples on how to use this library
  */
 import type { ApiResponse } from "@shared/types";

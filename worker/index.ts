@@ -1,5 +1,3 @@
-// Making changes to this file is **STRICTLY** forbidden. Please add your routes in `userRoutes.ts` file.
-
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
