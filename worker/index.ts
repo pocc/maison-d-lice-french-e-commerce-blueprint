@@ -39,6 +39,30 @@ const app = new Hono<{ Bindings: Env }>();
 
 app.use('*', logger());
 
+app.use('*', async (c, next) => {
+  await next();
+  
+  const response = c.res;
+  const contentType = response.headers.get('content-type') || '';
+  
+  if (contentType.includes('text/html')) {
+    const text = await response.text();
+    const requestUrl = new URL(c.req.url);
+    const baseUrl = `${requestUrl.protocol}//${requestUrl.host}`;
+    
+    const rewrittenHtml = text
+      .replace(/href="\/(?!\/)/g, `href="${baseUrl}/`)
+      .replace(/src="\/(?!\/)/g, `src="${baseUrl}/`)
+      .replace(/action="\/(?!\/)/g, `action="${baseUrl}/`);
+    
+    return new Response(rewrittenHtml, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+    });
+  }
+});
+
 app.use('/api/*', cors({ origin: '*', allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], allowHeaders: ['Content-Type', 'Authorization'] }));
 
 app.get('/api/health', (c) => c.json({ success: true, data: { status: 'healthy', timestamp: new Date().toISOString() }}));
