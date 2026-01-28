@@ -11,7 +11,22 @@
     <script>
       (function() {
         var hostname = window.location.hostname;
-        var countryCode = hostname.split('.')[0] || 'ERROR';
+        var subdomain = hostname.split('.')[0];
+        var pathMatch = window.location.pathname.match(/^\/(fr|de|ch)/);
+        var saasMatch = hostname.match(/saas-(fr|de|ch)\./);
+        var validCodes = ['fr', 'de', 'ch'];
+        
+        var countryCode;
+        if (pathMatch && pathMatch[1]) {
+          countryCode = pathMatch[1];
+        } else if (saasMatch && saasMatch[1]) {
+          countryCode = saasMatch[1];
+        } else if (validCodes.includes(subdomain)) {
+          countryCode = subdomain;
+        } else {
+          countryCode = 'ERROR';
+        }
+        
         var banner = document.getElementById('worker-banner');
         banner.textContent = '[https://fallback.saas-' + countryCode + '.ross.gg/ WORKER]: ' + window.location.href;
       })();
