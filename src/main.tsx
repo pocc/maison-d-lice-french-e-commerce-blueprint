@@ -2,6 +2,17 @@ import '@/lib/errorReporter';
 import { enableMapSet } from "immer";
 enableMapSet();
 
+// Set base path based on subdomain for asset resolution
+const hostname = window.location.hostname;
+const parts = hostname.split('.');
+const subdomain = parts[0];
+if (subdomain && subdomain !== '512') {
+  const baseTag = document.getElementById('app-base') as HTMLBaseElement;
+  if (baseTag) {
+    baseTag.href = `/${subdomain}/`;
+  }
+}
+
 import { createRoot } from 'react-dom/client'
 import {
   createBrowserRouter,
