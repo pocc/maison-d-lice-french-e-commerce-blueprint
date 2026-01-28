@@ -7,6 +7,15 @@
     <title>Vite + React + TS</title>
   </head>
   <body>
+    <div id="worker-banner" style="background: #f38020; color: #fff; padding: 8px; text-align: center; font-family: monospace; font-size: 12px; border-bottom: 1px solid #fff; position: sticky; top: 0; z-index: 9999;"></div>
+    <script>
+      (function() {
+        var hostname = window.location.hostname;
+        var countryCode = hostname.split('.')[0] || 'ERROR';
+        var banner = document.getElementById('worker-banner');
+        banner.textContent = '[https://fallback.saas-' + countryCode + '.ross.gg/ WORKER]: ' + window.location.href;
+      })();
+    </script>
     <div id="root"></div>
     <script>
         window.addEventListener('error', (event) => {
